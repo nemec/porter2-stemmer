@@ -12,5 +12,4 @@ For example:
     friend -> friend  
     friendly -> friend  
     friends -> friend  
-    friend's -> friend  
-    friends -> friend  
+    friend's -> friend
