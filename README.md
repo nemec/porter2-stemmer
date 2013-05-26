@@ -9,8 +9,8 @@ A stemmer helps convert similar words into a common form so that they can be acc
 
 For example:
 
-friend -> friend  
-friendly -> friend  
-friends -> friend  
-friend's -> friend  
-friends -> friend  
+    friend -> friend  
+    friendly -> friend  
+    friends -> friend  
+    friend's -> friend  
+    friends -> friend  
