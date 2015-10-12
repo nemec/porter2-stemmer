@@ -26,27 +26,17 @@ namespace Porter2Stemmer.UnitTest
         DeploymentItem("data.csv"), TestMethod]
         public void Stem_WithBatchData_StemsAllWordsCorrectly()
         {
-            //Assert.Inconclusive();
-            var lst = new List<string>();
+            // Arrange
             var stemmer = new EnglishPorter2Stemmer();
+            var row = TestContext.DataRow;
+            var unstemmed = row[0].ToString();
+            var expected = row[1].ToString();
 
-            foreach (var line in File.ReadLines("data.csv"))
-            {
-                var items = line.Split(',');
-                var unstemmed = items[0];
-                var stemmed = stemmer.Stem(unstemmed).Value;
-                var expected = items[1];
-                
-                if (stemmed != expected)
-                {
-                    lst.Add(String.Format("{0} ->\n\t{1} :\n\t{2}", 
-                        unstemmed, stemmed, expected));
-                }
-            }
-            
-            CollectionAssert.AreEqual(new string[0], lst, 
-                String.Format("{0} Failed:\n{1}", 
-                    lst.Count, String.Join("\n", lst)));
+            // Act
+            var stemmed = stemmer.Stem(unstemmed).Value;
+
+            // Asssert
+            Assert.AreEqual(expected, stemmed);
         }
 
         #endregion
